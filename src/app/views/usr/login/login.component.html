@@ -1,0 +1,36 @@
+<!--<div *ngIf="errorFlag"-->
+     <!--class="alert alert-danger">-->
+  <!--{{errorMsg}}-->
+<!--</div>-->
+<form (ngSubmit) = "login()" #f="ngForm">
+  <div class="container-fluid">
+    <h1>Login</h1>
+    <label>Username</label>
+    <input placeholder="username" name="username" type="text" class="form-control"
+           ngModel required #username="ngModel"/>
+
+    <label>Password</label>
+    <input placeholder="password" name="password" type="password" class="form-control"
+           ngModel required #password="ngModel"/>
+    <div>
+      <input type="radio" id="cbox1" value="student"
+             name="role" ngModel required #student="ngModel">
+      <label for="cbox1">Student</label>
+    </div>
+    <div>
+      <input type="radio" id="cbox2" value="faculty" name="role" ngModel required #faculty="ngModel">
+      <label for="cbox2">Faculty</label>
+    </div>
+    <div>
+      <input type="radio" id="cbox3" value="admin" name="role" ngModel required #admin="ngModel">
+      <label for="cbox3">Admin</label>
+    </div>
+    <span class="help-block" *ngIf="!username.valid && username.touched">
+            Please enter username!
+    </span>
+    <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Login</button>
+    <!--<button class="btn btn-success btn-block" routerLink="/register">Register</button>-->
+    <!--<a href="/facebook/login" class="btn btn-primary btn-block">-->
+      <!--<span class="fa fa-facebook"></span> Facebook </a>-->
+  </div>
+</form>
