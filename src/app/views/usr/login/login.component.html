@@ -3,12 +3,11 @@
   <!--{{errorMsg}}-->
 <!--</div>-->
 <form (ngSubmit) = "login()" #f="ngForm">
-  <div class="container-fluid">
-    <h1>Login</h1>
+  <div class="container-fluid underDog col-sm-4 offset-sm-4">
+    <h1 class="text-center">Login</h1>
     <label>Username</label>
     <input placeholder="username" name="username" type="text" class="form-control"
            ngModel required #username="ngModel"/>
-
     <label>Password</label>
     <input placeholder="password" name="password" type="password" class="form-control"
            ngModel required #password="ngModel"/>
@@ -28,7 +27,8 @@
     <span class="help-block" *ngIf="!username.valid && username.touched">
             Please enter username!
     </span>
-    <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Login</button>
+    <button class="btn btn-dark btn-block" type="submit" [disabled]="!f.valid">Login</button>
+    <button class="btn btn-light btn-block">homePage</button>
     <!--<button class="btn btn-success btn-block" routerLink="/register">Register</button>-->
     <!--<a href="/facebook/login" class="btn btn-primary btn-block">-->
       <!--<span class="fa fa-facebook"></span> Facebook </a>-->

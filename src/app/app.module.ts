@@ -11,6 +11,10 @@ import {SharedService} from './client-services/shared.service';
 import {UserService} from './client-services/user.service';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AdminManageComponent } from './views/usr/admin-manage/admin-manage.component';
+import { AdminProfileComponent } from './views/usr/admin-profile/admin-profile.component';
+import { SearchComponent } from './views/registration/search/search.component';
+import { VideoListComponent } from './views/video-list/video-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import {HttpClientModule} from '@angular/common/http';
     LoginComponent,
     HomePageComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminManageComponent,
+    AdminProfileComponent,
+    SearchComponent,
+    VideoListComponent
   ],
   imports: [
     BrowserModule,

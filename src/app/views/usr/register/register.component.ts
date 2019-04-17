@@ -18,25 +18,19 @@ export class RegisterComponent implements OnInit {
   };
   constructor(private router: Router, private userService: UserService, private sharedService: SharedService) { }
 
+
+  // TODO Admin must be only one
   register() {
     this.user.username = this.registerForm.value.username;
     this.user.password = this.registerForm.value.password;
-    this.user.role = this.registerForm.value.password;
-    switch (this.user.role) {
-      case 'admin':
-        this.registerAdmin();
-        break;
-      case 'faculty':
-        this.registerFaculty();
-        break;
-      case 'student':
-        this.registerStudent();
-        break;
-    }
+    this.user.role = this.registerForm.value.role;
+    this.userService.register(this.user).subscribe(
+      (user: any) => {
+        this.sharedService.user = user;
+        this.router.navigate(['/login']);
+      }
+    );
   }
-  registerAdmin() {}
-  registerFaculty() {}
-  registerStudent() {}
   ngOnInit() {
   }
 

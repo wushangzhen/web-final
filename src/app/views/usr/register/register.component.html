@@ -1,6 +1,6 @@
 <form (ngSubmit) = "register()" #f="ngForm">
-  <div class="container-fluid">
-    <h1>Register</h1>
+  <div class="container-fluid underDog col-sm-4 offset-sm-4">
+    <h1 class="text-center">Register</h1>
     <input type="text"
            name="username"
            class="form-control"
@@ -28,8 +28,8 @@
       <input type="radio" id="cbox3" value="admin" name="role" ngModel required #admin="ngModel">
       <label for="cbox3">Admin</label>
     </div>
-    <button class="btn btn-primary btn-block" type="submit" [disabled]="!f.valid">Login</button>
-    <a class="btn btn-danger btn-block"
+    <button class="btn btn-dark btn-block" type="submit" [disabled]="!f.valid">register</button>
+    <a class="btn btn-light btn-block"
        routerLink="/login">Cancel</a>
   </div>
 </form>

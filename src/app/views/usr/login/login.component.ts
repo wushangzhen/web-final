@@ -43,22 +43,32 @@ export class LoginComponent implements OnInit {
   validateAdmin(user: any) {
     this.userService.loginAdmin(user).subscribe(
       (data: any) => {
-        this.router.navigate(['/profile']);
+        this.sharedService.user = data;
+        this.router.navigate(['usr/' + data._id + '/manage']);
       }
     );
   }
 
-  validateFaculty(user:any) {
-
+  validateFaculty(user: any) {
+    this.userService.loginFaculty(user).subscribe(
+      (data: any) => {
+        this.sharedService.user = data;
+        this.router.navigate(['usr/' + data._id + '/search']);
+      }
+    );
   }
 
-  validateStudent(user:any) {
-
+  validateStudent(user: any) {
+    this.userService.loginStudent(user).subscribe(
+      (data: any) => {
+        this.sharedService.user = data;
+        this.router.navigate(['usr/' + data._id + '/search']);
+      }
+    );
   }
 
 
   ngOnInit() {
-
   }
 
 }

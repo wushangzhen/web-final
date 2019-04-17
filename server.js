@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 
 const port = process.env.PORT || '3200';
 app.set('port', port);
-var connectionString = 'mongodb://127.0.0.1:27017/webdev';
+var connectionString = 'mongodb://127.0.0.1:27017/finalWeb';
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 const client = mongoose.connect( connectionString, { useNewUrlParser: true });

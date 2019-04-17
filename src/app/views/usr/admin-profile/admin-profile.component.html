@@ -16,14 +16,9 @@
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input [ngModel]="user.password" name="password" type="password" class="form-control" id="password" placeholder="{{user.password}}"
+      <input [ngModel]="user.password" name="password" type="text" class="form-control" id="password" placeholder="{{user.password}}"
              ngModel required #password="ngModel">
     </div>
-    <ul class="list-group cl-list-group-borderless">
-      <li class="list-group-item cl-list-item-borderless" *ngFor="let course of user.courses">
-        <a>{{course.channelTitle}}</a>
-      </li>
-    </ul>
   </div>
 
   <nav class="navbar fixed-bottom bg-primary navbar-dark justify-content-end p-0">
@@ -34,3 +29,4 @@
     </div>
   </nav>
 </form>
+

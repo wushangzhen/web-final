@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default navbar-fixed-top justify-content-start bg-dark p-0">
+  <a routerLink="/login" class="nav-item nav-link cl-text-white">
+    <i class="fas fa-chevron-left fontawsome_icon"></i>
+  </a>
+  <a class="float-left cl-text-white nav-item nav-link navbar-brand p-0" routerLink="#">
+    Search Courses
+  </a>
+  <!--<a routerLink="/usr/{{userId}}/website/new" class="navbar-link navbar-text cl-text-white cl-icon-padding ml-auto">-->
+  <!--<i class="fas fa-plus fontawsome_icon"></i>-->
+  <!--</a>-->
+</nav>
+
+<form (ngSubmit)="search()" #x="ngForm" style="margin-top: 40vh">
+  <div class="container">
+    <div class="row form-group">
+      <!--<label for="content">Username</label>-->
+      <input name="content" type="text" class="form-control col-xs-11" id="content"
+             placeholder="input which type of video course you want"
+             ngModel required #content="ngModel">
+      <button type="submit" class="col-xs-1"> search </button>
+    </div>
+  </div>
+</form>
