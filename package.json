@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -22,7 +22,7 @@
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
-    "mongoose": "^5.5.1",
+    "mongoose": "^4.7.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "rxjs": "~6.3.3",

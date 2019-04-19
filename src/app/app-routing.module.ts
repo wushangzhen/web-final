@@ -8,16 +8,20 @@ import {AdminManageComponent} from './views/usr/admin-manage/admin-manage.compon
 import {AdminProfileComponent} from './views/usr/admin-profile/admin-profile.component';
 import {SearchComponent} from './views/registration/search/search.component';
 import {VideoListComponent} from './views/video-list/video-list.component';
+import {FacultyAddCourseComponent} from './views/usr/faculty-add-course/faculty-add-course.component';
+import {VisitorSearchComponent} from './views/usr/visitor-search/visitor-search.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'visitor', component: VisitorSearchComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'profile/uid', component: ProfileComponent},
+  {path: 'profile/:uid', component: ProfileComponent},
   {path: 'usr/:uid/manage', component: AdminManageComponent},
-  {path: 'usr/:uid/profile/:uuid/', component: AdminProfileComponent},
+  {path: 'usr/:uid/profile/:uuid', component: AdminProfileComponent},
   {path: 'usr/:uid/search', component: SearchComponent},
-  {path: 'usr/:uid/video', component: VideoListComponent}
+  {path: 'usr/:uid/video', component: VideoListComponent},
+  {path: 'usr/:uid/faculty', component: FacultyAddCourseComponent},
 ];
 
 @NgModule({

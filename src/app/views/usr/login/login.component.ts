@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
     this.userService.loginFaculty(user).subscribe(
       (data: any) => {
         this.sharedService.user = data;
-        this.router.navigate(['usr/' + data._id + '/search']);
+        this.router.navigate(['usr/' + data._id + '/faculty']);
       }
     );
   }
@@ -66,8 +66,6 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-
   ngOnInit() {
   }
 

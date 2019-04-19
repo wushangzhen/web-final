@@ -13,24 +13,29 @@ import {UserService} from '../../client-services/user.service';
 export class VideoListComponent implements OnInit {
   items = [];
   uid = '';
-  video = {
+  course = {
     videoId: '',
     channelTitle: '',
     description: '',
     publishedAt: '',
+    thumbnail: '',
+    title: '',
   };
   user: any;
   constructor(private sharedService: SharedService, public sanitizer: DomSanitizer, private route: ActivatedRoute,
               private userService: UserService, private router: Router) { }
   chooseCourse(item: any) {
-    this.video.videoId = item.id.videoId;
-    this.video.channelTitle = item.snippet.channelTitle;
-    this.video.description = item.snippet.description;
-    this.video.publishedAt = item.snippet.publishedAt;
-    this.user.courses.push(this.video);
+    this.course.videoId = item.id.videoId;
+    this.course.channelTitle = item.snippet.channelTitle;
+    this.course.description = item.snippet.description;
+    this.course.publishedAt = item.snippet.publishedAt;
+    this.course.thumbnail = item.snippet.thumbnails.high.url;
+    this.course.title = item.snippet.title;
+    this.user.courses.push(this.course);
+    this.sharedService.user = this.user;
     this.userService.updateUser(this.user).subscribe(
       (data: any) => {
-        this.router.navigate(['/profile/' + this.uid]);
+        this.router.navigate(['usr/' + this.uid + '/search']);
       }
     );
   }
@@ -38,6 +43,7 @@ export class VideoListComponent implements OnInit {
   ngOnInit() {
     this.items = this.sharedService.items;
     this.user = this.sharedService.user;
+    console.log(this.user);
     this.route.params.subscribe(params => {
         this.uid = params['uid'];
       }

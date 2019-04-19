@@ -1,0 +1,36 @@
+<h2 class="underDog">Search Courses</h2>
+<div class="container underDog">
+  <form #x="ngForm">
+    <div class="input-group">
+      <input name="content" type="text" class="form-control col-xs-11" id="content"
+             placeholder="input type of video course eg: python"
+             ngModel required #content="ngModel">
+      <a class="btn btn-dark" (click)="search()">
+        <span class="fas fa-search fontawsome_icon cl-text-white"></span>
+      </a>
+    </div>
+  </form>
+</div>
+
+<h2 class="underDog">Courses From Youtube</h2>
+<div class="row underDog" style="margin-left: 0vh">
+  <div *ngFor = "let item of items" class="col-md-4 thumbnail">
+    <div class="card mb-4 box-shadow">
+      <img class="card-img-top" data-src='{{item.snippet.thumbnails.high.url}}' alt="Card image cap">
+      <div class="card-body">
+        <h3>{{item.snippet.title}}</h3>
+        <p class="card-text">{{item.snippet.description}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-danger" (click)="chooseCourse()">choose</button>
+            <a href='{{url + item.id.videoId}}'>
+              <button type="button" class="btn btn-light btn-outline-info">view</button>
+            </a>
+          </div>
+          <small class="text-muted">Channel: {{item.snippet.channelTitle}}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

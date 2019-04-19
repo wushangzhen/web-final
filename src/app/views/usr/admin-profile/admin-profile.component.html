@@ -1,14 +1,14 @@
 <form (ngSubmit)="updateUser()" #x="ngForm">
-  <nav class="navbar navbar-default navbar-fixed-top bg-primary p-0">
-    <div class="container-fluid">
-      <a class="navbar-brand cl-text-white" routerLink="./">Profile</a>
-      <a (click)="updateUser()" type="summit" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
+  <nav class="navbar navbar-default navbar-fixed-top justify-content-start bg-dark p-0 underDog">
+      <a routerLink='/usr/{{uid}}/manage' class="nav-item nav-link cl-text-white">
+      <i class="fas fa-chevron-left fontawsome_icon"></i>
+      </a>
+      <a class="navbar-brand cl-text-white float-left" routerLink="#">Profile</a>
+      <a (click)="updateUser()" type="summit" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding ml-auto">
         <span class="fas fa-check fontawsome_icon cl-text-white"></span>
       </a>
-    </div>
   </nav>
-
-  <div class="container">
+  <div class="container underDog">
     <div class="form-group">
       <label for="username">Username</label>
       <input [ngModel]="user.username" name="username" type="text" class="form-control" id="username" placeholder="{{user.username}}"
@@ -21,9 +21,9 @@
     </div>
   </div>
 
-  <nav class="navbar fixed-bottom bg-primary navbar-dark justify-content-end p-0">
+  <nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-end p-0 underDog">
     <div class="container-fuild p-0">
-      <a routerLink="/profile/{{user._id}}" class="navbar-link navbar-text ml-auto">
+      <a routerLink="/profile/{{sharedService.user._id}}" class="navbar-link navbar-text ml-auto">
         <i class="fas fa-user fontawsome_icon"></i>
       </a>
     </div>

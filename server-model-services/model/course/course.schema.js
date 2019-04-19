@@ -4,8 +4,10 @@ var courseSchema = new mongoose.Schema({
   channelTitle: String,
   description: String,
   publishedAt: String,
+  thumbnail: String,
+  title: String,
   dateCreated: {type:Date, default: Date.now()},
 }, {collection:'Courses'});
 
-var Course = mongoose.model('Courses', courseSchema);
+// var Course = mongoose.model('Course', courseSchema);
 module.exports = courseSchema;

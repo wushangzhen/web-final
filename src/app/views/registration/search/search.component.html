@@ -1,23 +1,77 @@
-<nav class="navbar navbar-default navbar-fixed-top justify-content-start bg-dark p-0">
+<nav class="navbar navbar-default fixed-top justify-content-start bg-dark p-0 underDog">
   <a routerLink="/login" class="nav-item nav-link cl-text-white">
     <i class="fas fa-chevron-left fontawsome_icon"></i>
   </a>
   <a class="float-left cl-text-white nav-item nav-link navbar-brand p-0" routerLink="#">
-    Search Courses
+    Courses Management
   </a>
-  <!--<a routerLink="/usr/{{userId}}/website/new" class="navbar-link navbar-text cl-text-white cl-icon-padding ml-auto">-->
-  <!--<i class="fas fa-plus fontawsome_icon"></i>-->
-  <!--</a>-->
 </nav>
 
-<form (ngSubmit)="search()" #x="ngForm" style="margin-top: 40vh">
-  <div class="container">
-    <div class="row form-group">
-      <!--<label for="content">Username</label>-->
-      <input name="content" type="text" class="form-control col-xs-11" id="content"
-             placeholder="input which type of video course you want"
-             ngModel required #content="ngModel">
-      <button type="submit" class="col-xs-1"> search </button>
+<h2 class="underDog" style="margin-top: 40px">Registered Courses</h2>
+<div class="row underDog" style="margin-left: 0vh">
+  <div *ngFor = "let course of userCourses" class="col-md-4 thumbnail">
+    <div class="card mb-4 box-shadow">
+      <img class="card-img-top" data-src='{{course.thumbnail}}' alt="Card image cap">
+      <div class="card-body">
+        <h3>{{course.title}}</h3>
+        <p class="card-text">{{course.description}}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button type="button" class="btn btn-outline-danger" (click)="deleteCourse(course)">delete</button>
+            <a href='{{url + course.videoId}}'>
+              <button type="button" class="btn btn-light btn-outline-info">view</button>
+            </a>
+          </div>
+          <small class="text-muted">Channel: {{course.channelTitle}}</small>
+        </div>
+      </div>
     </div>
   </div>
-</form>
+</div>
+
+
+<h2 class="underDog">Available Courses</h2>
+<div class="row underDog" style="margin-left: 0vh">
+    <div *ngFor = "let course of availableCourses" class="col-md-4">
+      <div class="card mb-4 box-shadow">
+        <img class="card-img-top" data-src='{{course.thumbnail}}' alt="Card image cap">
+        <div class="card-body">
+          <h3>{{course.title}}</h3>
+          <p class="card-text">{{course.description}}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-danger" (click)="chooseCourse(course)">choose</button>
+              <a href='{{url + course.videoId}}'>
+                <button type="button" class="btn btn-light btn-outline-info">view</button>
+              </a>
+            <!--</div>-->
+            <small class="text-muted">Channel: {{course.channelTitle}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="container underDog" style="margin-top: 40vh">-->
+<h2 class="underDog">Search Courses</h2>
+<div class="container underDog">
+  <form #x="ngForm">
+    <div class="input-group">
+      <input name="content" type="text" class="form-control col-xs-11" id="content"
+             placeholder="input type of video course eg: python"
+             ngModel required #content="ngModel">
+      <a class="btn btn-dark" (click)="search()">
+        <span class="fas fa-search fontawsome_icon cl-text-white"></span>
+      </a>
+    </div>
+  </form>
+</div>
+
+<nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-end p-0">
+  <!--<div class="container-fuild p-0">-->
+    <a routerLink="/profile/{{sharedService.user._id}}" class="navbar-link navbar-text ml-auto">
+      <i class="fas fa-user fontawsome_icon"></i>
+    </a>
+  <!--</div>-->
+</nav>

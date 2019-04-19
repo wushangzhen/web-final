@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../client-services/user.service';
 import {NgForm} from '@angular/forms';
+import {SharedService} from '../../../client-services/shared.service';
 
 @Component({
   selector: 'app-admin-profile',
@@ -19,7 +20,7 @@ export class AdminProfileComponent implements OnInit {
   uuid: String;
   uid: String;
   constructor(private route: ActivatedRoute, private userService: UserService,
-              private router: Router) { }
+              private router: Router, public sharedService: SharedService) { }
 
   updateUser() {
     this.user.username = this.profileForm.value.username;

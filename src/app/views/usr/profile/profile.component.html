@@ -1,6 +1,9 @@
 <form (ngSubmit)="updateUser()" #x="ngForm">
-  <nav class="navbar navbar-default navbar-fixed-top bg-primary p-0">
+  <nav class="navbar navbar-default navbar-fixed-top justify-content-start bg-dark p-0 underDog">
     <div class="container-fluid">
+      <a routerLink="/usr/{{userId}}/search" class="nav-item nav-link cl-text-white">
+        <i class="fas fa-chevron-left fontawsome_icon"></i>
+      </a>
       <a class="navbar-brand cl-text-white" routerLink="./">Profile</a>
       <a (click)="updateUser()" type="summit" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding">
         <span class="fas fa-check fontawsome_icon cl-text-white"></span>
@@ -8,7 +11,7 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container underDog">
     <div class="form-group">
       <label for="username">Username</label>
       <input [ngModel]="user.username" name="username" type="text" class="form-control" id="username" placeholder="{{user.username}}"
@@ -16,9 +19,10 @@
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input [ngModel]="user.password" name="password" type="password" class="form-control" id="password" placeholder="{{user.password}}"
+      <input [ngModel]="user.password" name="password" type="text" class="form-control" id="password" placeholder="{{user.password}}"
              ngModel required #password="ngModel">
     </div>
+    <h2>Registered Courses</h2>
     <ul class="list-group cl-list-group-borderless">
       <li class="list-group-item cl-list-item-borderless" *ngFor="let course of user.courses">
         <a>{{course.channelTitle}}</a>
@@ -26,11 +30,11 @@
     </ul>
   </div>
 
-  <nav class="navbar fixed-bottom bg-primary navbar-dark justify-content-end p-0">
-    <div class="container-fuild p-0">
-      <a routerLink="/profile/{{user._id}}" class="navbar-link navbar-text ml-auto">
-        <i class="fas fa-user fontawsome_icon"></i>
-      </a>
-    </div>
-  </nav>
+  <!--<nav class="navbar fixed-bottom bg-primary navbar-dark justify-content-end p-0">-->
+    <!--<div class="container-fuild p-0">-->
+      <!--<a routerLink="/profile/{{user._id}}" class="navbar-link navbar-text ml-auto">-->
+        <!--<i class="fas fa-user fontawsome_icon"></i>-->
+      <!--</a>-->
+    <!--</div>-->
+  <!--</nav>-->
 </form>

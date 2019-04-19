@@ -1,0 +1,72 @@
+<form #x="ngForm" class="underDog">
+  <nav class="navbar navbar-default navbar-fixed-top justify-content-start bg-dark p-0 underDog">
+    <a routerLink="/login" class="nav-item nav-link cl-text-white">
+      <i class="fas fa-chevron-left fontawsome_icon"></i>
+    </a>
+    <a class="float-left cl-text-white nav-item nav-link navbar-brand p-0" routerLink="#">
+      Faculty Management
+    </a>
+    <a (click)="addCourse()" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding ml-auto">
+      <span class="fas fa-check fontawsome_icon cl-text-white"></span>
+    </a>
+  </nav>
+
+  <h2>Faculty Courses</h2>
+  <ul class="list-group cl-list-group-borderless">
+    <li class="list-group-item cl-list-item-borderless" *ngFor="let course of userCourses">
+      <a>{{course.channelTitle}}</a>
+      <button class="float-right btn-outline-danger" (click)="deleteCourse(course)">delete</button>
+    </li>
+  </ul>
+  <!--videoId: String,-->
+  <!--channelTitle: String,-->
+  <!--description: String,-->
+  <!--publishedAt: String,-->
+  <!--thumbnail: String,-->
+  <!--title: String,-->
+  <h2>Add Courses</h2>
+  <div class="container">
+    <div class="form-group">
+      <!--<label for="videoId">ideoId</label>-->
+      <input name="videoId" type="text" class="form-control" id="videoId" placeholder="videoId"
+             ngModel required #videoId="ngModel">
+    </div>
+    <div class="form-group">
+      <!--<label for="channelTitle">Password</label>-->
+      <input name="channelTitle" type="text" class="form-control" placeholder="channelTitle"
+             ngModel required #channelTitle="ngModel">
+    </div>
+    <div class="form-group">
+      <!--<label for="channelTitle">Password</label>-->
+      <input name="description" type="text" class="form-control" placeholder="description"
+             ngModel required #description="ngModel">
+    </div>
+    <div class="form-group">
+      <!--<label for="channelTitle">Password</label>-->
+      <input name="publishedAt" type="text" class="form-control" id="publishedAt" placeholder="publishedAt eg: 10/24/2019"
+             ngModel required #publishedAt="ngModel">
+    </div>
+    <div class="form-group">
+      <!--<label for="channelTitle">Password</label>-->
+      <input [ngModel]="course.thumbnail" name="thumbnail" type="text" class="form-control" placeholder="{{course.thumbnail}}"
+             ngModel required #thumbnail="ngModel">
+    </div>
+    <div class="form-group">
+      <!--<label for="channelTitle">Password</label>-->
+      <input name="title" type="text" class="form-control" placeholder="title"
+             ngModel required #title="ngModel">
+    </div>
+  </div>
+
+  <nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-end p-0 underDog">
+    <div class="container-fuild p-0">
+      <a routerLink="/profile/{{sharedService.user._id}}" class="navbar-link navbar-text ml-auto">
+        <i class="fas fa-user fontawsome_icon"></i>
+      </a>
+    </div>
+  </nav>
+</form>
+
+
+
+

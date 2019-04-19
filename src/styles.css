@@ -2,6 +2,10 @@
 body {
   padding-top: 0px;
   padding-bottom: 70px;
+  background-image: url("https://www.ccifrance-myanmar.org/sites/ccifrance-myanmar.org/files/member-image/bg04.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-size: 100%;*/
 }
 input.form-control {
   margin-bottom: 5px;
@@ -112,4 +116,11 @@ a:hover{
 .underDog{
   font-family: Underdog;
 }
+
+@media only screen and (min-width:720px) {
+  .thumbnail{
+    height: 582px;
+  }
+}
+
 

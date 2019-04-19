@@ -15,6 +15,9 @@ import { AdminManageComponent } from './views/usr/admin-manage/admin-manage.comp
 import { AdminProfileComponent } from './views/usr/admin-profile/admin-profile.component';
 import { SearchComponent } from './views/registration/search/search.component';
 import { VideoListComponent } from './views/video-list/video-list.component';
+import {CourseService} from './client-services/course.service';
+import { FacultyAddCourseComponent } from './views/usr/faculty-add-course/faculty-add-course.component';
+import { VisitorSearchComponent } from './views/usr/visitor-search/visitor-search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { VideoListComponent } from './views/video-list/video-list.component';
     AdminManageComponent,
     AdminProfileComponent,
     SearchComponent,
-    VideoListComponent
+    VideoListComponent,
+    FacultyAddCourseComponent,
+    VisitorSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ import { VideoListComponent } from './views/video-list/video-list.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [SharedService, UserService],
+  providers: [SharedService, UserService, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

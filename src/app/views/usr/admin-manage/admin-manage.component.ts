@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../client-services/user.service';
+import {SharedService} from '../../../client-services/shared.service';
 
 @Component({
   selector: 'app-admin-manage',
@@ -11,7 +12,9 @@ export class AdminManageComponent implements OnInit {
   faculties: [];
   students: [];
   userId: '';
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
+  user = {};
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService,
+              public sharedService: SharedService) { }
 
   deleteUser(user: any) {
     this.userService.deleteUser(user._id).subscribe(
@@ -29,10 +32,7 @@ export class AdminManageComponent implements OnInit {
             }
           );
         }
-        this.router.onSameUrlNavigation = 'reload';
-        this.router.navigate(['usr/' + this.userId + '/manage']).then(() => {
-          this.router.onSameUrlNavigation = 'ignore';
-        });
+        this.ngOnInit();
       }
     );
   }
@@ -41,6 +41,7 @@ export class AdminManageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = this.sharedService.user;
     this.route.params.subscribe(params => {
         this.userId = params['uid'];
       }

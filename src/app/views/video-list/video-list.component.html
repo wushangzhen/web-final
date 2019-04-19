@@ -1,39 +1,46 @@
-<div class="container underDog">
-  <label>Search Result</label>
-  <ul class="list-group cl-list-group-borderless">
-    <li class="list-group-item cl-list-item-borderless" *ngFor="let item of items">
-      <a (click)="chooseCourse(item)"><span class="fas fa-check fontawsome_icon float-right"></span></a>
-      <a>{{item.snippet.channelTitle}}</a>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + item.id.videoId)" allowfullscreen></iframe>
-      </div>
-    </li>
-  </ul>
-</div>
+<!--<div class="container underDog text-center">-->
+  <!--<label>Search Result</label>-->
+  <!--&lt;!&ndash;<ul class="list-group cl-list-group-borderless">&ndash;&gt;-->
+    <!--&lt;!&ndash;<li class="list-group-item cl-list-item-borderless" *ngFor="let item of items">&ndash;&gt;-->
+      <!--&lt;!&ndash;<a (click)="chooseCourse(item)"><span class="fas fa-check fontawsome_icon float-right"></span></a>&ndash;&gt;-->
+      <!--&lt;!&ndash;<a>{{item.snippet.channelTitle}}</a>&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="embed-responsive embed-responsive-16by9">&ndash;&gt;-->
+        <!--&lt;!&ndash;<iframe [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + item.id.videoId)" allowfullscreen></iframe>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+  <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+<!--</div>-->
+<nav class="navbar navbar-default navbar-fixed-top justify-content-start bg-dark p-0 underDog">
+  <a routerLink="/usr/{{uid}}/search" class="nav-item nav-link cl-text-white">
+    <i class="fas fa-chevron-left fontawsome_icon"></i>
+  </a>
+  <a class="float-left cl-text-white nav-item nav-link navbar-brand p-0" routerLink="#">
+    Search Result
+  </a>
+</nav>
 
-<ul class="list-group cl-list-group-borderless underDog">
-  <li class="list-group-item cl-list-item-borderless" *ngFor="let item of items">
-      <div class="col-md-6 offset-sm-3">
-        <div class="card mb-4 box-shadow">
-          <img class="card-img-top" data-src='{{item.snippet.thumbnails.high.url}}' alt="Card image cap">
-          <div class="card-body">
-            <h3>{{item.snippet.title}}</h3>
-            <p class="card-text">{{item.snippet.description}}</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="chooseCourse(item)">choose</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">view</button>
-              </div>
-              <small class="text-muted">Channel: {{item.snippet.channelTitle}}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-  </li>
-</ul>
+<!--<ul class="list-group cl-list-group-borderless underDog">-->
+  <!--<li class="list-group-item cl-list-item-borderless" *ngFor="let item of items">-->
+      <!--<div class="col-md-6 offset-sm-3">-->
+        <!--<div class="card mb-4 box-shadow">-->
+          <!--<img class="card-img-top" data-src='{{item.snippet.thumbnails.high.url}}' alt="Card image cap">-->
+          <!--<div class="card-body">-->
+            <!--<h3>{{item.snippet.title}}</h3>-->
+            <!--<p class="card-text">{{item.snippet.description}}</p>-->
+            <!--<div class="d-flex justify-content-between align-items-center">-->
+              <!--<div class="btn-group">-->
+                <!--<button type="button" class="btn btn-sm btn-outline-secondary" (click)="chooseCourse(item)">choose</button>-->
+                <!--<button type="button" class="btn btn-sm btn-outline-secondary">view</button>-->
+              <!--</div>-->
+              <!--<small class="text-muted">Channel: {{item.snippet.channelTitle}}</small>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+  <!--</li>-->
+<!--</ul>-->
 
 <div class="row">
-  <!--<div *ngFor = "let pic of photos['photo']" class="col-xs-4">-->
   <div *ngFor = "let item of items" class="col-md-6">
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" data-src='{{item.snippet.thumbnails.high.url}}' alt="Card image cap">
@@ -42,7 +49,7 @@
         <p class="card-text">{{item.snippet.description}}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="chooseCourse(item)">choose</button>
+            <button type="button" class="btn btn-sm btn-outline-info" (click)="chooseCourse(item)">choose</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">view</button>
           </div>
           <small class="text-muted">Channel: {{item.snippet.channelTitle}}</small>
@@ -51,4 +58,12 @@
     </div>
   </div>
 </div>
+
+<nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-end p-0 underDog">
+  <div class="container-fuild p-0">
+    <a routerLink="/profile/{{user._id}}" class="navbar-link navbar-text ml-auto">
+      <i class="fas fa-user fontawsome_icon"></i>
+    </a>
+  </div>
+</nav>
 
