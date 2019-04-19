@@ -39,9 +39,9 @@
       <!--</div>-->
   <!--</li>-->
 <!--</ul>-->
-
-<div class="row">
-  <div *ngFor = "let item of items" class="col-md-6">
+<h2 class="underDog">Courses From Youtube</h2>
+<div class="row underDog" style="margin-left: 0vh">
+  <div *ngFor = "let item of items" class="col-md-4">
     <div class="card mb-4 box-shadow">
       <img class="card-img-top" data-src='{{item.snippet.thumbnails.high.url}}' alt="Card image cap">
       <div class="card-body">
@@ -49,8 +49,10 @@
         <p class="card-text">{{item.snippet.description}}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-info" (click)="chooseCourse(item)">choose</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">view</button>
+            <button type="button" class="btn btn-outline-danger" (click)="chooseCourse(item)">choose</button>
+            <a href='{{url + item.id.videoId}}'>
+              <button type="button" class="btn btn-light btn-outline-info">view</button>
+            </a>
           </div>
           <small class="text-muted">Channel: {{item.snippet.channelTitle}}</small>
         </div>
@@ -58,6 +60,24 @@
     </div>
   </div>
 </div>
+<!--<div class="row">-->
+  <!--<div *ngFor = "let item of items" class="col-md-4 thumbnail">-->
+    <!--<div class="card mb-4 box-shadow">-->
+      <!--<img class="card-img-top" data-src='{{item.snippet.thumbnails.high.url}}' alt="Card image cap">-->
+      <!--<div class="card-body">-->
+        <!--<h3>{{item.snippet.title}}</h3>-->
+        <!--<p class="card-text">{{item.snippet.description}}</p>-->
+        <!--<div class="d-flex justify-content-between align-items-center">-->
+          <!--<div class="btn-group">-->
+            <!--<button type="button" class="btn btn-sm btn-outline-info" (click)="chooseCourse(item)">choose</button>-->
+            <!--<button type="button" class="btn btn-sm btn-outline-secondary">view</button>-->
+          <!--</div>-->
+          <!--<small class="text-muted">Channel: {{item.snippet.channelTitle}}</small>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 
 <nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-end p-0 underDog">
   <div class="container-fuild p-0">

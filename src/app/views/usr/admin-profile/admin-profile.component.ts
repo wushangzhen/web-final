@@ -15,7 +15,8 @@ export class AdminProfileComponent implements OnInit {
   user = {
     username: '',
     password: '',
-    role: ''
+    role: '',
+    courses: [],
   };
   uuid: String;
   uid: String;
@@ -30,6 +31,9 @@ export class AdminProfileComponent implements OnInit {
         this.router.navigate(['usr/' + this.uid + '/manage']);
       }
     );
+  }
+  deleteCourse() {
+
   }
 
   ngOnInit() {

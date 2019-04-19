@@ -10,15 +10,25 @@
   </nav>
   <div class="container underDog">
     <div class="form-group">
-      <label for="username">Username</label>
+      <label for="username" style="font-size: 30px">Username</label>
       <input [ngModel]="user.username" name="username" type="text" class="form-control" id="username" placeholder="{{user.username}}"
              ngModel required #username="ngModel">
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password" style="font-size: 30px">Password</label>
       <input [ngModel]="user.password" name="password" type="text" class="form-control" id="password" placeholder="{{user.password}}"
              ngModel required #password="ngModel">
     </div>
+  </div>
+  <div class="container underDog">
+    <label style="font-size: 30px">courses list</label>
+    <ul class="list-group cl-list-group-borderless">
+      <li class="list-group-item cl-list-item-borderless bg-transparent" *ngFor="let course of user.courses">
+        <!--<a routerLink="/usr/{{userId}}/website/{{website._id}}"><span class="fas fa-cog fontawsome_icon float-right"></span></a>-->
+        <a>{{course.title}}</a>
+        <button class="float-right btn-outline-danger" (click)="deleteCourse(course)">delete</button>
+      </li>
+    </ul>
   </div>
 
   <nav class="navbar fixed-bottom bg-dark navbar-dark justify-content-end p-0 underDog">
