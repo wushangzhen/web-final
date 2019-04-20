@@ -1,4 +1,4 @@
-<h2 class="underDog">Search Courses</h2>
+<h2 class="underDog">Search in Video Library Hub</h2>
 <div class="container underDog">
   <form #x="ngForm">
     <div class="input-group">
@@ -12,7 +12,7 @@
   </form>
 </div>
 
-<h2 class="underDog">Courses From Youtube</h2>
+<h2 class="underDog">Online Tutorials</h2>
 <div class="row underDog" style="margin-left: 0vh">
   <div *ngFor = "let item of items" class="col-md-4 thumbnail">
     <div class="card mb-4 box-shadow">
@@ -22,9 +22,9 @@
         <p class="card-text">{{item.snippet.description}}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-outline-danger" (click)="chooseCourse()">choose</button>
+            <button type="button" class="btn btn-outline-danger" (click)="chooseCourse()">like</button>
             <a href='{{url + item.id.videoId}}'>
-              <button type="button" class="btn btn-light btn-outline-info">view</button>
+              <button type="button" class="btn btn-light btn-outline-info">watch</button>
             </a>
           </div>
           <small class="text-muted">Channel: {{item.snippet.channelTitle}}</small>

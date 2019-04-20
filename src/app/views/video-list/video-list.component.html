@@ -14,9 +14,9 @@
   <a routerLink="/usr/{{uid}}/search" class="nav-item nav-link cl-text-white">
     <i class="fas fa-chevron-left fontawsome_icon"></i>
   </a>
-  <a class="float-left cl-text-white nav-item nav-link navbar-brand p-0" routerLink="#">
-    Search Result
-  </a>
+  <!--<a class="float-left cl-text-white nav-item nav-link navbar-brand p-0" routerLink="#">-->
+    <!--Search Result-->
+  <!--</a>-->
 </nav>
 
 <!--<ul class="list-group cl-list-group-borderless underDog">-->
@@ -39,7 +39,7 @@
       <!--</div>-->
   <!--</li>-->
 <!--</ul>-->
-<h2 class="underDog">Courses From Youtube</h2>
+<h2 class="underDog">Online Tutorials</h2>
 <div class="row underDog" style="margin-left: 0vh">
   <div *ngFor = "let item of items" class="col-md-4">
     <div class="card mb-4 box-shadow">
@@ -49,9 +49,9 @@
         <p class="card-text">{{item.snippet.description}}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-outline-danger" (click)="chooseCourse(item)">choose</button>
+            <button type="button" class="btn btn-outline-danger" (click)="chooseCourse(item)">like</button>
             <a href='{{url + item.id.videoId}}'>
-              <button type="button" class="btn btn-light btn-outline-info">view</button>
+              <button type="button" class="btn btn-light btn-outline-info">watch</button>
             </a>
           </div>
           <small class="text-muted">Channel: {{item.snippet.channelTitle}}</small>

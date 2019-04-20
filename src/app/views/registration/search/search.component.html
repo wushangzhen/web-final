@@ -3,11 +3,11 @@
     <i class="fas fa-chevron-left fontawsome_icon"></i>
   </a>
   <a class="float-left cl-text-white nav-item nav-link navbar-brand p-0" routerLink="#">
-    Courses Management
+    Videos
   </a>
 </nav>
 
-<h2 class="underDog" style="margin-top: 40px">Registered Courses</h2>
+<h2 class="underDog" style="margin-top: 40px">My Videos</h2>
 <div class="row underDog" style="margin-left: 0vh">
   <div *ngFor = "let course of userCourses" class="col-md-4 thumbnail">
     <div class="card mb-4 box-shadow">
@@ -19,7 +19,7 @@
           <div class="btn-group">
             <button type="button" class="btn btn-outline-danger" (click)="deleteCourse(course)">delete</button>
             <a href='{{url + course.videoId}}'>
-              <button type="button" class="btn btn-light btn-outline-info">view</button>
+              <button type="button" class="btn btn-light btn-outline-info">watch</button>
             </a>
           </div>
           <small class="text-muted">Channel: {{course.channelTitle}}</small>
@@ -30,7 +30,7 @@
 </div>
 
 
-<h2 class="underDog">Available Courses</h2>
+<h2 class="underDog">Reserved Materials</h2>
 <div class="row underDog" style="margin-left: 0vh">
     <div *ngFor = "let course of availableCourses" class="col-md-4">
       <div class="card mb-4 box-shadow">
@@ -40,9 +40,9 @@
           <p class="card-text">{{course.description}}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-danger" (click)="chooseCourse(course)">choose</button>
+              <button type="button" class="btn btn-sm btn-outline-danger" (click)="chooseCourse(course)">like</button>
               <a href='{{url + course.videoId}}'>
-                <button type="button" class="btn btn-light btn-outline-info">view</button>
+                <button type="button" class="btn btn-light btn-outline-info">watch</button>
               </a>
             <!--</div>-->
             <small class="text-muted">Channel: {{course.channelTitle}}</small>
@@ -54,7 +54,7 @@
 </div>
 
 <!--<div class="container underDog" style="margin-top: 40vh">-->
-<h2 class="underDog">Search Courses</h2>
+<h2 class="underDog">Search Online</h2>
 <div class="container underDog">
   <form #x="ngForm">
     <div class="input-group">
