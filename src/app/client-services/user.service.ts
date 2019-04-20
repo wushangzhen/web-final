@@ -28,8 +28,8 @@ export class UserService {
     .map(
         (user: any) => {
           if (user !== 0) {
-            console.log(user);
-            this.sharedService.user = user;
+            // console.log(user);
+            // this.sharedService.user = user;
             return true;
           } else {
             this.router.navigate(['/login']);
@@ -50,6 +50,12 @@ export class UserService {
   }
   findUserById(userId: String) {
     return this.http.get(this.baseUrl + 'api/' + userId, {withCredentials: true});
+  }
+  findUserByUsername(username: String) {
+    const req_url = this.baseUrl + 'api/find/name?username=' + username;
+    // console.log(req_url);
+    return this.http.get(req_url, {withCredentials: true});
+    // return this.http.get(this.baseUrl + 'api/' + userId, {withCredentials: true});
   }
   updateUser(user: any) {
     return this.http.put(this.baseUrl + 'api/update', user,{withCredentials: true});

@@ -33,6 +33,7 @@ module.exports=function (app) {
   app.get('/api/student', findAllStudent);
   app.get('/api/:uid', findUserById);
   app.put('/api/update', updateUser);
+  app.get("/api/find/name", findUserByUsername);
 
   passport.serializeUser(serializeUser);
   passport.deserializeUser(deserializeUser);
@@ -41,6 +42,19 @@ module.exports=function (app) {
 
   function serializeUser(user, done) {
     done(null, user);
+  }
+  function findUserByUsername(req, res) {
+    var username = req.query['username'];
+    if (username){
+      userModel.findUserByUserName(username).exec(
+        function (err, user) {
+          if (err) {
+            return res.sendStatus(400).send(err);
+          }
+          return res.json(user);
+        }
+      )
+    }
   }
 
   function deserializeUser(user, done) {
@@ -59,7 +73,6 @@ module.exports=function (app) {
       .then(
         function (user) {
           if (user && bcrypt.compareSync(password, user['password'])) {
-            console.log('svc ' + user);
             return done(null, user);
           } else {
             return done(null, false);
@@ -103,9 +116,7 @@ module.exports=function (app) {
 
   function login(req, res) {
     var user = req.body;
-    console.log('106');
-    console.log(user);
-    userModel.findByCredential(user.username, user.password, user.role).then(
+    userModel.findUserByUserName(user.username).then(
       function (user) {
         res.json(user);
       }

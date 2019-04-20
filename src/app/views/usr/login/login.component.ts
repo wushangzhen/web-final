@@ -24,25 +24,35 @@ export class LoginComponent implements OnInit {
   login() {
     this.user.username = this.loginForm.value.username;
     this.user.password = this.loginForm.value.password;
-    this.user.role = this.loginForm.value.role;
-    this.sharedService.user = this.user;
-    // According to checkbox to choose the role
-    switch (this.loginForm.value.role) {
-      case 'admin':
-        this.validateAdmin(this.user);
-        break;
-      case 'faculty':
-        this.validateFaculty(this.user);
-        break;
-      case 'student':
-        this.validateStudent(this.user);
-        break;
-    }
+    // this.user.role = this.loginForm.value.role;
+    this.userService.findUserByUsername(this.user.username).subscribe(
+      (data: any) => {
+        // console.log(data);
+        this.sharedService.user = data;
+        // According to checkbox to choose the role
+        console.log(data.role);
+        switch (data.role) {
+          case 'admin':
+            data.password = this.loginForm.value.password;
+            this.validateAdmin(data);
+            break;
+          case 'faculty':
+            data.password = this.loginForm.value.password;
+            this.validateFaculty(data);
+            break;
+          case 'student':
+            data.password = this.loginForm.value.password;
+            this.validateStudent(data);
+            break;
+        }
+      }
+    );
   }
 
   validateAdmin(user: any) {
     this.userService.loginAdmin(user).subscribe(
       (data: any) => {
+        console.log(data);
         this.sharedService.user = data;
         this.router.navigate(['usr/' + data._id + '/manage']);
       }
@@ -52,7 +62,7 @@ export class LoginComponent implements OnInit {
   validateFaculty(user: any) {
     this.userService.loginFaculty(user).subscribe(
       (data: any) => {
-        this.sharedService.user = data;
+        // this.sharedService.user = data;
         this.router.navigate(['usr/' + data._id + '/faculty']);
       }
     );
@@ -61,8 +71,7 @@ export class LoginComponent implements OnInit {
   validateStudent(user: any) {
     this.userService.loginStudent(user).subscribe(
       (data: any) => {
-        // user = this.sharedService.user;
-        console.log(data);
+        this.sharedService.user = data;
         this.router.navigate(['usr/' + data._id + '/search']);
       }
     );
