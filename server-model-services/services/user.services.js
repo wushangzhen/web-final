@@ -27,7 +27,7 @@ module.exports=function (app) {
     function (req, res) {
       // Successful authentication, redirect home.
       const uid = req.user._id;
-      res.redirect('/#/user/' + uid);
+      res.redirect('/#/usr/' + uid + '/search');
     });
 
   app.post('/api/login', passport.authenticate('local'), login);
