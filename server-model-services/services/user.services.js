@@ -16,6 +16,7 @@ module.exports=function (app) {
   //   callbackURL: 'auth/facebook/callback'
   // };
 
+
   app.get ('/facebook/login', passport.authenticate('facebook', { scope : 'email' }));
   app.get('/auth/facebook/callback', passport.authenticate('facebook', {failureRedirect: '/#/login'}),
     function (req, res) {
