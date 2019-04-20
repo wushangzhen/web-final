@@ -4,16 +4,16 @@
       <i class="fas fa-chevron-left fontawsome_icon"></i>
     </a>
     <a class="float-left cl-text-white nav-item nav-link navbar-brand p-0" routerLink="#">
-      Faculty Management
+      Faculty
     </a>
     <a (click)="addCourse()" class="navbar-link navbar-text pull-right cl-text-white cl-icon-padding ml-auto">
       <span class="fab fa-facebook-f cl-text-white"></span>
     </a>
   </nav>
 
-  <h2>Faculty Courses</h2>
+  <h2>My Reserved Materials</h2>
   <ul class="list-group cl-list-group-borderless">
-    <li class="list-group-item cl-list-item-borderless" *ngFor="let course of userCourses">
+    <li class="list-group-item cl-list-item-borderless bg-transparent" *ngFor="let course of userCourses">
       <a>{{course.channelTitle}}</a>
       <button class="float-right btn-outline-danger" (click)="deleteCourse(course)">delete</button>
     </li>
@@ -24,7 +24,7 @@
   <!--publishedAt: String,-->
   <!--thumbnail: String,-->
   <!--title: String,-->
-  <h2>Add Courses</h2>
+  <h2>Add New Video</h2>
   <div class="container">
     <div class="form-group">
       <!--<label for="videoId">ideoId</label>-->
