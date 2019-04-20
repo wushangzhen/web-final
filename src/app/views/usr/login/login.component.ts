@@ -61,7 +61,8 @@ export class LoginComponent implements OnInit {
   validateStudent(user: any) {
     this.userService.loginStudent(user).subscribe(
       (data: any) => {
-        this.sharedService.user = data;
+        // user = this.sharedService.user;
+        console.log(data);
         this.router.navigate(['usr/' + data._id + '/search']);
       }
     );

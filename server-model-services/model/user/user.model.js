@@ -9,13 +9,14 @@ userModel.findUserByUserName = findUserByUserName;
 userModel.findByCredential = findByCredential;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
-userModel.findFacebookUser = findFacebookUser;
+// userModel.findFacebookUser = findFacebookUser;
 userModel.findAllFaculty = findAllFaculty;
 userModel.findAllStudent = findAllStudent;
+userModel.findUserByFacebookId = findUserByFacebookId;
 
 module.exports = userModel;
 
-function findFacebookUser(id) {
+function findUserByFacebookId(id) {
   return userModel.findOne({"facebook.id": id});
 }
 

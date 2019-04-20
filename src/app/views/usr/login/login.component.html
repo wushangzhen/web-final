@@ -27,10 +27,13 @@
     <span class="help-block" *ngIf="!username.valid && username.touched">
             Please enter username!
     </span>
+    <!--<a href="/facebook/login" class="btn btn-primary btn-block">-->
+      <!--<span class="fab fa-facebook"></span> Facebook-->
+    <!--</a>-->
     <button class="btn btn-dark btn-block" type="submit" [disabled]="!f.valid">Login</button>
     <button routerLink="" class="btn btn-light btn-block">homePage</button>
     <!--<button class="btn btn-success btn-block" routerLink="/register">Register</button>-->
-    <!--<a href="/facebook/login" class="btn btn-primary btn-block">-->
-      <!--<span class="fa fa-facebook"></span> Facebook </a>-->
+    <a href="/facebook/login" class="btn btn-primary btn-block">
+      <span class="fa fa-facebook"></span> Facebook </a>
   </div>
 </form>

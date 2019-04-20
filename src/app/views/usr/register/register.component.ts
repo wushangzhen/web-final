@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
       (user: any) => {
         this.sharedService.user = user;
         this.router.navigate(['/login']);
+        // this.router.navigate(['/profile', this.sharedService.user._id]);
       }
     );
   }

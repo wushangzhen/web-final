@@ -18,6 +18,8 @@ import { VideoListComponent } from './views/video-list/video-list.component';
 import {CourseService} from './client-services/course.service';
 import { FacultyAddCourseComponent } from './views/usr/faculty-add-course/faculty-add-course.component';
 import { VisitorSearchComponent } from './views/usr/visitor-search/visitor-search.component';
+import {AuthGuard} from './client-services/auth-guard.service';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { VisitorSearchComponent } from './views/usr/visitor-search/visitor-searc
     FormsModule,
     HttpClientModule,
   ],
-  providers: [SharedService, UserService, CourseService],
+  providers: [SharedService, UserService, CourseService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

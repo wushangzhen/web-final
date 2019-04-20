@@ -18,8 +18,10 @@ export class ProfileComponent implements OnInit {
     courses: [],
   };
   userId: String;
+
   constructor(private route: ActivatedRoute, private userService: UserService,
-              private router: Router, private sharedService: SharedService) { }
+              private router: Router, private sharedService: SharedService) {
+  }
 
   updateUser() {
     this.user.username = this.profileForm.value.username;
@@ -44,4 +46,10 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
+
+  logOut() {
+    this.userService.logOut().subscribe(
+      (data: any) => this.router.navigate(['']));
+  }
+
 }

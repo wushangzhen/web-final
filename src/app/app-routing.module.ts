@@ -10,18 +10,19 @@ import {SearchComponent} from './views/registration/search/search.component';
 import {VideoListComponent} from './views/video-list/video-list.component';
 import {FacultyAddCourseComponent} from './views/usr/faculty-add-course/faculty-add-course.component';
 import {VisitorSearchComponent} from './views/usr/visitor-search/visitor-search.component';
+import {AuthGuard} from './client-services/auth-guard.service';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginComponent},
   {path: 'visitor', component: VisitorSearchComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'profile/:uid', component: ProfileComponent},
-  {path: 'usr/:uid/manage', component: AdminManageComponent},
-  {path: 'usr/:uid/profile/:uuid', component: AdminProfileComponent},
-  {path: 'usr/:uid/search', component: SearchComponent},
-  {path: 'usr/:uid/video', component: VideoListComponent},
-  {path: 'usr/:uid/faculty', component: FacultyAddCourseComponent},
+  {path: 'profile/:uid', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'usr/:uid/manage', component: AdminManageComponent, canActivate: [AuthGuard]},
+  {path: 'usr/:uid/profile/:uuid', component: AdminProfileComponent, canActivate: [AuthGuard]},
+  {path: 'usr/:uid/search', component: SearchComponent, canActivate: [AuthGuard]},
+  {path: 'usr/:uid/video', component: VideoListComponent, canActivate: [AuthGuard]},
+  {path: 'usr/:uid/faculty', component: FacultyAddCourseComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

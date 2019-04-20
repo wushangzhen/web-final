@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {SharedService} from './shared.service';
-// import 'rxjs/Rx';
+import 'rxjs/Rx';
 
 @Injectable()
 
@@ -17,6 +17,28 @@ export class UserService {
   register(user: any) {
     return this.http.post(this.baseUrl + 'api/register', user, {withCredentials: true});
   }
+
+  logOut() {
+    this.sharedService.user = null;
+    return this.http.post(this.baseUrl + 'api/logout', '', { withCredentials: true });
+  }
+
+  loggedin() {
+    return this.http.post(this.baseUrl + 'api/loggedin', '', { withCredentials: true })
+    .map(
+        (user: any) => {
+          if (user !== 0) {
+            console.log(user);
+            this.sharedService.user = user;
+            return true;
+          } else {
+            this.router.navigate(['/login']);
+            return false;
+          }
+        }
+      );
+  }
+
   findAllFaculties() {
     return this.http.get(this.baseUrl + 'api/faculty', {withCredentials: true});
   }
