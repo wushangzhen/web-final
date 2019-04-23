@@ -5,21 +5,21 @@ module.exports=function (app) {
   var LocalStrategy = require('passport-local').Strategy;
   var FacebookStrategy = require('passport-facebook').Strategy;
   var bcrypt = require('bcrypt-nodejs');
-  // var facebookConfig = {
-  //   clientID: process.env.FACEBOOK_ID,
-  //   clientSecret: process.env.FACEBOOK_SECRET,
-  //   callbackURL: process.env.FACEBOOK_CALLBACK_URL
-  // };
+  var facebookConfig = {
+    clientID: process.env.FACEBOOK_ID,
+    clientSecret: process.env.FACEBOOK_SECRET,
+    callbackURL: process.env.FACEBOOK_CALLBACK_URL
+  };
   // var facebookConfig = {
   //     clientID : process.env.FACEBOOK_CLIENT_ID,
   //     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
   //     callbackURL : process.env.FACEBOOK_CALLBACK_URL
   // };
-  var facebookConfig = {
-    clientID: '862340027449226',
-    clientSecret: 'dca146ffd172fded45d22c2be4a52d77',
-    callbackURL: 'auth/facebook/callback'
-  };
+  // var facebookConfig = {
+  //   clientID: '862340027449226',
+  //   clientSecret: 'dca146ffd172fded45d22c2be4a52d77',
+  //   callbackURL: 'auth/facebook/callback'
+  // };
 
 
   app.get ('/facebook/login', passport.authenticate('facebook', { scope : 'email' }));
