@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
 
   updateUser() {
     this.user.username = this.profileForm.value.username;
-    this.user.password = this.profileForm.value.password;
+    // this.user.password = this.profileForm.value.password;
     this.userService.updateUser(this.user).subscribe(
       (data: any) => {
         this.sharedService.user = this.user;
@@ -49,7 +49,9 @@ export class ProfileComponent implements OnInit {
 
   logOut() {
     this.userService.logOut().subscribe(
-      (data: any) => this.router.navigate(['']));
+      (data: any) => {
+        this.router.navigate(['/login']);
+      });
   }
-
 }
+

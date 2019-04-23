@@ -17,21 +17,21 @@
       <input [ngModel]="user.username" name="username" type="text" class="form-control" id="username" placeholder="{{user.username}}"
              ngModel required #username="ngModel">
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input [ngModel]="user.password" name="password" type="text" class="form-control" id="password" placeholder="{{user.password}}"
-             ngModel required #password="ngModel">
-    </div>
-    <h2>Registered Courses</h2>
+    <!--<div class="form-group">-->
+      <!--<label for="password">Password</label>-->
+      <!--<input [ngModel]="user.password" name="password" type="text" class="form-control" id="password" placeholder="{{user.password}}"-->
+             <!--ngModel required #password="ngModel">-->
+    <!--</div>-->
+    <h2>My Videos</h2>
     <ul class="list-group cl-list-group-borderless">
-      <li class="list-group-item cl-list-item-borderless" *ngFor="let course of user.courses">
+      <li class="list-group-item cl-list-item-borderless bg-transparent" *ngFor="let course of user.courses">
         <a>{{course.channelTitle}}</a>
       </li>
     </ul>
   </div>
 
-  <div class="form-group">
-    <button class="btn btn-danger btn-block" (click) ="logOut()">Logout</button>
+  <div class="form-group col-sm-4 offset-sm-4 bg-transparent" style="margin-top: 20px">
+    <button class="btn btn-outline-danger btn-block" (click) ="logOut()">Logout</button>
   </div>
 
   <!--<nav class="navbar fixed-bottom bg-primary navbar-dark justify-content-end p-0">-->

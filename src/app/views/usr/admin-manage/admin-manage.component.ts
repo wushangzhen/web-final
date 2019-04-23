@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../client-services/user.service';
 import {SharedService} from '../../../client-services/shared.service';
+import {CourseService} from '../../../client-services/course.service';
 
 @Component({
   selector: 'app-admin-manage',
@@ -14,11 +15,21 @@ export class AdminManageComponent implements OnInit {
   userId: '';
   user = {};
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService,
-              public sharedService: SharedService) { }
+              public sharedService: SharedService, private courseService: CourseService) { }
 
   deleteUser(user: any) {
     this.userService.deleteUser(user._id).subscribe(
       (data: any) => {
+
+        // TODO delete all courses from every user course and db
+        // var i;
+        // for (i = 0; i < data.courses.length; i++) {
+        //   this.courseService.deleteCourse(data._id, data.courses[i]._id).subscribe(
+        //     (data1: any) => {
+        //       console.log('delete courses from users');
+        //     }
+        //   );
+        // }
         if (data.role === 'student') {
           this.userService.findAllStudents().subscribe(
             (data1: any) => {

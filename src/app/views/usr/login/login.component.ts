@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
         // console.log(data);
         this.sharedService.user = data;
         // According to checkbox to choose the role
-        console.log(data.role);
         switch (data.role) {
           case 'admin':
             data.password = this.loginForm.value.password;
@@ -52,8 +51,6 @@ export class LoginComponent implements OnInit {
   validateAdmin(user: any) {
     this.userService.loginAdmin(user).subscribe(
       (data: any) => {
-        console.log(data);
-        this.sharedService.user = data;
         this.router.navigate(['usr/' + data._id + '/manage']);
       }
     );
@@ -62,7 +59,6 @@ export class LoginComponent implements OnInit {
   validateFaculty(user: any) {
     this.userService.loginFaculty(user).subscribe(
       (data: any) => {
-        // this.sharedService.user = data;
         this.router.navigate(['usr/' + data._id + '/faculty']);
       }
     );
@@ -71,7 +67,6 @@ export class LoginComponent implements OnInit {
   validateStudent(user: any) {
     this.userService.loginStudent(user).subscribe(
       (data: any) => {
-        this.sharedService.user = data;
         this.router.navigate(['usr/' + data._id + '/search']);
       }
     );

@@ -33,16 +33,6 @@ export class SearchComponent implements OnInit {
   deleteCourse(course: any) {
     this.deleteHelper(course._id);
     this.ngOnInit();
-    // this.courseService.deleteCourse(this.uid, course._id).subscribe(
-    //   (data: any) => {
-    //     this.deleteHelper(course._id);
-    //     this.ngOnInit();
-    //   },
-    //   (error: any) => {
-    //     this.deleteHelper(course._id);
-    //     // this.ngOnInit();
-    //   }
-    // );
   }
   deleteHelper(cid: any) {
     for (const i in this.sharedService.user.courses) {
@@ -51,8 +41,6 @@ export class SearchComponent implements OnInit {
         this.sharedService.user.courses.splice(j, 1);
         this.userService.updateUser(this.sharedService.user).subscribe(
           (data: any) => {
-            console.log(54);
-            console.log(data);
             this.sharedService.user = data;
         }
         );

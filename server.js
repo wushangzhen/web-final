@@ -30,12 +30,12 @@ app.use(function(req, res, next) {
 
 const port = process.env.PORT || '3200';
 app.set('port', port);
-// var connectionString = 'mongodb://127.0.0.1:27017/finalWeb';
+var connectionString = 'mongodb://127.0.0.1:27017/finalWeb';
 // mongodb://<dbuser>:<dbpassword>@ds161345.mlab.com:61345/heroku_cdb09zsd
-var connectionStringHeroku = 'mongodb://heroku_cdb09zsd:gikutt67oahp371f3umkvjmfu1@ds161345.mlab.com:61345/heroku_cdb09zsd';
+// var connectionString = 'mongodb://heroku_cdb09zsd:gikutt67oahp371f3umkvjmfu1@ds161345.mlab.com:61345/heroku_cdb09zsd';
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-const client = mongoose.connect( connectionStringHeroku, { useNewUrlParser: true });
+const client = mongoose.connect( connectionString, { useNewUrlParser: true });
 
 // Create HTTP server
 const server = http.createServer(app);
